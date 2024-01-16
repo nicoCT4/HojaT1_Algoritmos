@@ -14,9 +14,6 @@ public class MainRadio {
             switch(opcion){
                 case 1:
                 case 2:
-                    miRadio.cambiarFrecuencia();
-                    System.out.println("Frecuencia cambiada");
-                    break;
                 case 3:
                     miRadio.avanzarDial();
                     System.out.println("Dial avanzado");
@@ -46,7 +43,18 @@ public class MainRadio {
                     }
                     break;
                 case 5:
+                    
+                    System.out.print("Ingrese el numero de boton (1-12): ");
+                        boton = sc.nextInt();
+                        float
+                    estacionRecuperada = miRadio.recuperarEstacion(boton - 1);
+
+                    System.out.println("Estacion recuperada del boton " + boton + ": " + estacionRecuperada);
+                        break;
                 case 6:
+                    miRadio.setEncendido(false);
+                    System.out.println("Radio apagado");
+                    break;
                 default:
                     System.out.println("Opción no válida");
             }
