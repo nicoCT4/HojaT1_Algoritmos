@@ -16,7 +16,15 @@ public class Radio implements Radio_30 {
     public Radio(String marca) {
         this.marca = marca;
     }
-
+    public void cambiarFrecuencia() {
+        if (banda == AM) {
+            banda = FM;
+            System.out.println("Frecuencia cambiada a FM");
+        } else {
+            banda = AM;
+            System.out.println("Frecuencia cambiada a AM");
+        }
+    }
 
     public void avanzarDial() {
         if (banda == FM) {
@@ -80,6 +88,7 @@ public class Radio implements Radio_30 {
             System.out.println("Índice no válido. Debe estar entre 0 y 11.");
         }
     }
+    
 
     @Override
     public float recuperarEstacion(int idx) {

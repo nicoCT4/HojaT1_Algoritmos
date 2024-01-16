@@ -14,6 +14,9 @@ public class MainRadio {
             switch(opcion){
                 case 1:
                 case 2:
+                    miRadio.cambiarFrecuencia();
+                    System.out.println("Frecuencia cambiada");
+                    break;
                 case 3:
                     miRadio.avanzarDial();
                     System.out.println("Dial avanzado");
