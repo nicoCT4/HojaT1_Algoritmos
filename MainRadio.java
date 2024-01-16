@@ -13,6 +13,9 @@ public class MainRadio {
             opcion = sc.nextInt();
             switch(opcion){
                 case 1:
+                    miRadio.setEncendido(true);
+                    System.out.println("Radio encendido");
+                    break;
                 case 2:
                     miRadio.cambiarFrecuencia();
                     System.out.println("Frecuencia cambiada");
