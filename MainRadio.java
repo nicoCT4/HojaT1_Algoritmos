@@ -75,6 +75,35 @@ public class MainRadio {
                     System.out.println(estacionRecuperada);
                         break;
                 case 6:
+                    System.out.println("Seleccione una opción:");
+                    System.out.println("1. Subir volumen");
+                    System.out.println("2. Bajar volumen");
+                    int opcionVolumen = sc.nextInt();
+                
+                    System.out.println("Ingrese la cantidad de volumen a ajustar de 0 a 100:");
+                    int cantidadVolumen = sc.nextInt();
+                
+                    int nuevoVolumen;
+                    
+                    if (opcionVolumen == 1) {
+                        nuevoVolumen = miRadio.getVolumen() + cantidadVolumen;
+                        System.out.println("Volumen subido a "+ nuevoVolumen);
+                    } else if (opcionVolumen == 2) {
+                        nuevoVolumen = miRadio.getVolumen() - cantidadVolumen;
+                        System.out.println("Volumen bajado a "+ nuevoVolumen);
+                    } else {
+                        System.out.println("Opción no válida.");
+                        break;
+                    }
+                
+                    // Asegurarse de que el volumen esté en el rango de 0 a 100
+                    if (nuevoVolumen >= 0 && nuevoVolumen <= 100) {
+                        miRadio.setVolumen(nuevoVolumen);
+                    } else {
+                        System.out.println("Volumen fuera de rango (0-100).");
+                    }
+                    break;
+                case 7:
                     //Apagar la radio.
                     miRadio.setEncendido(false);
                     System.out.println("Radio apagado");
@@ -90,14 +119,15 @@ public class MainRadio {
      * Este método muestra las opciones disponibles para el usuario.
      */
     public static void PrintMenu(){
-        System.out.println("-------------------------");
+        System.out.println("\n-------------------------");
         System.out.println("1. Encender radio");
         System.out.println("2. Cambiar de AM a FM a AM");
         System.out.println("3. Avanzar en el dial"); //Al  llegar al final del dial, regresa al inicio
         System.out.println("4. Guardar estacion actual"); //Total de 12 estaciones
         System.out.println("5. Seleccionar estacion guardada");
-        System.out.println("6. Apagar radio");
+        System.out.println("6. Subir y bajar volumen");
+        System.out.println("7. Apagar radio");
         System.out.println("-------------------------");
-        System.out.println("Seleccione una opcion:");
+        System.out.println("\nSeleccione una opcion:");
     }
 }
