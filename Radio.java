@@ -1,3 +1,13 @@
+/**
+ * Clase Radio
+ * Javier Benítez - 23405
+ * Nicolás Concuá - 23197
+ * Fernando Hernández - 23645
+ * Fernando Rueda - 23748
+ * Esta clase implementa la interfaz Radio_30 y proporciona una implementación para las funcionalidades de una radio.
+ * Fecha de creación: [14/01/2024]
+ * Fecha de última modificación: [15/01/2024]
+ */
 public class Radio implements Radio_30 {
     private boolean encendido;
     private String marca;
@@ -13,9 +23,18 @@ public class Radio implements Radio_30 {
         return estacion;
     }
     
+    /**
+     * Constructor para crear una nueva radio con la marca.
+     * 
+     * @param marca La marca del radio.
+     */
     public Radio(String marca) {
         this.marca = marca;
     }
+
+    /**
+     * Cambia la frecuencia de la radi entre AM y FM.
+     */
     public void cambiarFrecuencia() {
         if (banda == AM) {
             banda = FM;
@@ -26,6 +45,9 @@ public class Radio implements Radio_30 {
         }
     }
 
+    /**
+     * Avanza el dial de la radio al siguiente valor, dependiendo si está en FM o AM.
+     */
     public void avanzarDial() {
         if (banda == FM) {
             estacion += 0.2;
@@ -41,6 +63,7 @@ public class Radio implements Radio_30 {
         System.out.println("Dial avanzado a " + estacion);
     }
 
+    // Métodos sobreescritos de la interfaz Radio_30.
     @Override
     public void setEncendido(boolean encendido) {
         this.encendido = encendido;
@@ -104,10 +127,20 @@ public class Radio implements Radio_30 {
         }
     }
 
+    /**
+     * Establece la marca de la radio.
+     * 
+     * @param marca La nueva marca de la radio.
+     */
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+    /**
+     * Obtiene la marca de la radio.
+     * 
+     * @return La marca de la radio.
+     */
     public String getMarca() {
         return marca;
     }
@@ -124,6 +157,11 @@ public class Radio implements Radio_30 {
         this.apagado = apagado;
     }
 
+    /**
+     * Obtiene el estado actual de la radio.
+     * 
+     * @return true si la radio está apagada, false en caso contrario.
+     */
     public boolean getApagado() {
         return apagado;
     }
