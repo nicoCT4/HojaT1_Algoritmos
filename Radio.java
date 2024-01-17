@@ -50,18 +50,29 @@ public class Radio implements Radio_30 {
      */
     public void avanzarDial() {
         if (banda == FM) {
-            estacion += 0.2;
-            if (estacion > 107.9) {
+            // Lógica para avanzar en el dial cuando está en FM
+            if (estacion < 87.9f) {
                 estacion = 87.9f;
-            }
-        } else {
-            estacion += 10;
-            if (estacion > 1610) {
-                estacion = 530;
+            } else {
+                estacion += 0.2;
+                if (estacion > 107.9) {
+                    estacion = 87.9f;
+                }
             }
         }
-        System.out.println("Dial avanzado a " + estacion);
-    }
+        if (banda == AM){
+            // Lógica para avanzar en el dial cuando está en AM
+            if (estacion < 530) {
+                estacion = 530;
+            } else {
+                estacion += 10;
+                if (estacion > 1610) {
+                    estacion = 530;
+                }
+            }
+        }
+        System.out.println("Dial avanzado a " +  String.format("%.2f", estacion));
+        }      
 
     // Métodos sobreescritos de la interfaz Radio_30.
     @Override
@@ -119,7 +130,7 @@ public class Radio implements Radio_30 {
         if (idx >= 0 && idx < 12) {
             // Recupera la estación guardada en el botón especificado
             float estacionRecuperada = estacionesGuardadas[idx];
-            System.out.println("Estación recuperada del botón " + (idx + 1));
+            System.out.println("Estación recuperada del botón " + (idx + 1)+ ": " + String.format("%.2f", estacionRecuperada));
             return estacionRecuperada;
         } else {
             System.out.println("Índice no válido. Debe estar entre 0 y 11.");

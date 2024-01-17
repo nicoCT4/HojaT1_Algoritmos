@@ -52,13 +52,8 @@ public class MainRadio {
                     System.out.print("Ingrese el número de botón (1-12): ");
                     int boton = sc.nextInt();
                 
-                    // Solicitar al usuario la elección de la banda
-                    System.out.println("Seleccione la banda:");
-                    System.out.println("1. AM");
-                    System.out.println("2. FM");
-                    int opcionBanda = sc.nextInt();
-                
-                    // Validar la opción de banda
+                    // Utilizar la opción 2 directamente para determinar la banda
+                    int opcionBanda = 2;  // Por defecto, asumimos FM
                     if (opcionBanda == 1) {
                         // Banda AM
                         miRadio.guardarEstacion(estacionActual, new int[]{Radio_30.AM}, boton - 1);
@@ -69,6 +64,7 @@ public class MainRadio {
                         System.out.println("Opción de banda no válida.");
                     }
                     break;
+                
                 case 5:
                     // Recuperar la estación.
                     System.out.print("Ingrese el numero de boton (1-12): ");
@@ -76,7 +72,7 @@ public class MainRadio {
                         float
                     estacionRecuperada = miRadio.recuperarEstacion(boton - 1);
 
-                    System.out.println("Estacion recuperada del boton " + boton + ": " + estacionRecuperada);
+                    System.out.println(estacionRecuperada);
                         break;
                 case 6:
                     //Apagar la radio.
